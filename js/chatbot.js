@@ -2,7 +2,7 @@
    ICEE CHATBOT.JS - Democracy AI Advisor (Gemini 2.5 Flash API Direct Integration)
    ========================================================================== */
 
-const GEMINI_API_KEY = "AIzaSyAHKGRCFH2vzL3QFNXOBO1RoKcHKwbUa4M";
+const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 // System Instructions to keep Gemini aligned specifically as an election advisor
