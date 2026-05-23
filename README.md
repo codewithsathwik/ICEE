@@ -6,6 +6,19 @@
 
 **ICEE (Interactive Indian Election Explorer)** is an immersive, high-fidelity web application designed to educate citizens about the mechanics, protocols, and digital security measures of the world's largest democratic exercise. With responsive layouts, interactive simulators, live counters, and synth engines, ICEE makes election transparency engaging and accessible.
 
+## 🌐 Live Demo
+
+The application is fully deployed and publicly accessible on Google Cloud Run:
+👉 **[https://icee-explorer-734634157737.us-central1.run.app](https://icee-explorer-734634157737.us-central1.run.app)**
+
+> [!NOTE]
+> **Regional ISP Access (India):**
+> If you are accessing this link from India on networks like Jio, Airtel, or ACT, your connection might return a `DNS_PROBE_FINISHED_NXDOMAIN` error due to network-level blocking on serverless `*.run.app` subdomains. 
+> 
+> To bypass this restriction and access the live site instantly:
+> * Turn on a **VPN** connected to any international region, or
+> * Enable **Secure DNS** (DNS-over-HTTPS) in your browser settings (e.g., in Chrome: **Settings** > **Privacy and security** > **Security** > **Use secure DNS** > Select **Cloudflare (1.1.1.1)** or **Google (Public DNS)**), then reload the page.
+
 ---
 
 ## 🌟 Key Features
@@ -84,11 +97,29 @@ You only need a modern web browser and a static HTTP server environment.
 
 ---
 
+## 🔑 Gemini AI Chatbot API Key Setup
+
+The Democracy AI Chatbot utilizes Google's **Gemini 2.5 Flash API** to answer citizen questions about electoral guidelines. The direct integration is configured locally.
+
+To update or configure your own Gemini API Key:
+1. Obtain a free API Key from [Google AI Studio](https://aistudio.google.com/).
+2. Open **[js/chatbot.js](file:///d:/Web%20Development/Projects/ICEE/js/chatbot.js)** in your editor.
+3. Locate the `GEMINI_API_KEY` declaration at the very top (around line 5):
+   ```javascript
+   const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";
+   ```
+4. Replace the value inside the quotes with your unique API Key and save the file.
+
+---
+
 ## 📂 Repository Structure
+
 ```
 ICEE/
 ├── index.html       # Semantic HTML5 Application layout & views
 ├── style.css        # Premium custom stylesheet, Glassmorphic rules & animations
+├── nginx.conf       # Custom Nginx configuration for Cloud Run port routing
+├── Dockerfile       # Container setup for serverless Google Cloud Run deploy
 ├── js/
 │   ├── app.js       # Core application state, timeline, EVM, and canvas engine
 │   └── chatbot.js   # Democracy AI Chatbot integration and shortcuts
