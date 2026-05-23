@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="ICEE - Interactive Indian Election Explorer. An immersive assistant to understand the Indian electoral process, EVM/VVPAT counting, and modern voter technologies with high-fidelity simulations.">
+  <title>ICEE | Interactive Indian Election Explorer</title>
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=8">
+</head>
+
+<body>
+  <!-- Main Grid App Layout -->
+  <div class="app-container">
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">
+          <!-- Indian Ashok Chakra inspired subtle abstract logo or standard stylish vote icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+        </div>
+        <div class="logo-text">
+          <h1>ICEE</h1>
+          <span>Indian Election Explorer</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-target="home-view">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="9" />
+            <rect x="14" y="3" width="7" height="5" />
+            <rect x="14" y="12" width="7" height="9" />
+            <rect x="3" y="16" width="7" height="5" />
+          </svg>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-target="chatbot-view">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+          <span>Democracy AI Chat</span>
+        </button>
+        <button class="nav-item" data-target="timeline-view">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <span>Process Timeline</span>
+        </button>
+        <button class="nav-item" data-target="evm-view">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg>
+          <span>EVM & VVPAT Simulator</span>
+        </button>
+        <button class="nav-item" data-target="tech-view">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+            <line x1="12" y1="18" x2="12.01" y2="18" />
+          </svg>
+          <span>ECI Tech & Apps</span>
+        </button>
+        <button class="nav-item" data-target="toolkit-view">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+          </svg>
+          <span>Smart Voter Toolkit</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="footer-badge">
+          <span class="pulse-dot"></span>
+          <span>Elections Info Assistant</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+      <button class="mobile-nav-item active" data-target="home-view">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="9" />
+          <rect x="14" y="3" width="7" height="5" />
+          <rect x="14" y="12" width="7" height="9" />
+          <rect x="3" y="16" width="7" height="5" />
+        </svg>
+      </button>
+      <button class="mobile-nav-item" data-target="chatbot-view">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg>
+      </button>
+      <button class="mobile-nav-item" data-target="timeline-view">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+      </button>
+      <button class="mobile-nav-item" data-target="evm-view">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+        </svg>
+      </button>
+      <button class="mobile-nav-item" data-target="tech-view">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+          <line x1="12" y1="18" x2="12.01" y2="18" />
+        </svg>
+      </button>
+      <button class="mobile-nav-item" data-target="toolkit-view">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path
+            d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Main Workspace Content -->
+    <main class="main-content">
+
+      <!-- HEADER -->
+      <header class="main-header">
+        <div class="header-info">
+          <span class="breadcrumb">ECI Electoral System Hub</span>
+          <h2 id="header-title">Elections Dashboard</h2>
+        </div>
+        <div class="header-actions">
+          <div class="time-widget">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            <span id="current-date">May 22, 2026</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- VIEW 1: HOME/DASHBOARD -->
+      <section id="home-view" class="content-view active">
+        <!-- Hero Section -->
+        <div class="hero-section glass-card">
+          <div class="hero-content">
+            <span class="pill-saffron">Democracy in Action</span>
+            <h2>Understanding the World's Largest Democratic Exercise</h2>
+            <p>Welcome to the Interactive Indian Election Explorer. In India, conducting elections is a mammoth feat
+              involving nearly a billion voters. Explore our high-fidelity EVM counting engine, interactive roadmap, and
+              digital verification systems designed to preserve transparency and trust.</p>
+            <div class="hero-buttons">
+              <button class="btn btn-primary btn-sm" onclick="switchView('evm-view')">
+                <span>Try EVM Simulator</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </button>
+              <button class="btn btn-secondary btn-sm" onclick="switchView('timeline-view')">
+                <span>View Timeline</span>
+              </button>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="tricolor-ring">
+              <div class="ring-saffron"></div>
+              <div class="ring-white"></div>
+              <div class="ring-green"></div>
+              <div class="ring-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facts & Figures Counter -->
+        <h3 class="section-subtitle">Key Stats of Indian General Elections</h3>
+        <div class="stats-grid">
+          <div class="stats-card glass-card">
+            <div class="stats-icon text-saffron">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <div class="stats-details">
+              <div class="stats-number" id="stat-voters" data-value="968">0</div>
+              <div class="stats-unit">Million</div>
+              <div class="stats-label">Registered Electorate</div>
+            </div>
+          </div>
+
+          <div class="stats-card glass-card">
+            <div class="stats-icon text-white">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </div>
+            <div class="stats-details">
+              <div class="stats-number" id="stat-booths" data-value="1.05">0</div>
+              <div class="stats-unit">Million</div>
+              <div class="stats-label">Polling Stations</div>
+            </div>
+          </div>
+
+          <div class="stats-card glass-card">
+            <div class="stats-icon text-green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <div class="stats-details">
+              <div class="stats-number" id="stat-evms" data-value="5.5">0</div>
+              <div class="stats-unit">Million</div>
+              <div class="stats-label">EVMs & VVPAT Units</div>
+            </div>
+          </div>
+
+          <div class="stats-card glass-card">
+            <div class="stats-icon text-accent">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4l3 3" />
+              </svg>
+            </div>
+            <div class="stats-details">
+              <div class="stats-number" id="stat-phases" data-value="7">0</div>
+              <div class="stats-unit">Phases</div>
+              <div class="stats-label">Nationwide Polling window</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- System Core Pillars -->
+        <h3 class="section-subtitle">How Democracy Stays Secured</h3>
+        <div class="features-grid">
+          <div class="feature-card glass-card">
+            <h4>100% Sealed Trust</h4>
+            <p>Every Indian Electronic Voting Machine (EVM) operates on standard one-time programmable microchips. They
+              are never connected to the internet, Bluetooth, or any network, making them completely immune to cyber
+              hacks.</p>
+          </div>
+          <div class="feature-card glass-card">
+            <h4>Double Verification (VVPAT)</h4>
+            <p>Introduced to guarantee total reliability. The Voter Verifiable Paper Audit Trail prints a physical
+              ballot paper for visual verification. Even if an electronic tally is disputed, ECI physically counts
+              random VVPAT paper rolls.</p>
+          </div>
+          <div class="feature-card glass-card">
+            <h4>Independent Oversight</h4>
+            <p>The Election Commission of India (ECI) acts as an autonomous constitutional authority under Article 324,
+              free from executive control, ensuring fair and unbiased play for all candidates.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 1.5: DEMOCRACY AI CHATBOT [NEW] -->
+      <section id="chatbot-view" class="content-view">
+        <div class="chat-container glass-card">
+          <div class="chat-header">
+            <div class="chat-bot-info">
+              <div class="bot-avatar">🤖</div>
+              <div class="bot-status-details">
+                <h3>Democracy Advisor</h3>
+                <span class="bot-status-pill"><span class="status-pulse"></span>Active - Powered by Gemini AI</span>
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="btn-clear-chat" onclick="clearChatThread()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"
+                style="margin-right:4px;">
+                <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+              </svg>
+              Clear Conversation
+            </button>
+          </div>
+
+          <div class="chat-feed" id="chat-messages-feed">
+            <div class="msg-bubble bot-msg">
+              <div class="msg-meta">Democracy Advisor • AI System</div>
+              <div class="msg-text">
+                Namaste! I am your interactive **Democracy AI Advisor**. I am connected directly to **Gemini 2.5 Flash**
+                to answer any of your questions about the Indian electoral process, EVM/VVPAT mechanics, the Model Code
+                of Conduct, candidate verification, or smart voter toolkits.
+                <br><br>
+                How can I assist you in exploring our democratic shield today?
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-suggestions">
+            <span class="suggest-lbl">Suggested Topics:</span>
+            <div class="suggest-chips-wrapper">
+              <button class="suggest-chip" onclick="sendSuggestion('Are Indian EVMs secure from remote hacks?')">🛡️ Are
+                EVMs secure?</button>
+              <button class="suggest-chip" onclick="sendSuggestion('What is the Model Code of Conduct?')">📜 What is
+                MCC?</button>
+              <button class="suggest-chip" onclick="sendSuggestion('How does a VVPAT verification audit work?')">🗳️
+                What is a VVPAT audit?</button>
+              <button class="suggest-chip" onclick="sendSuggestion('Can seniors vote from home in India?')">🏡 Home
+                Voting Rules</button>
+              <button class="suggest-chip" onclick="sendSuggestion('How do I report campaign bribery via cVIGIL?')">📱
+                File cVIGIL report</button>
+            </div>
+          </div>
+
+          <div class="chat-input-panel">
+            <div class="chat-input-row">
+              <input type="text" id="chat-user-input" class="form-control chat-input-field"
+                placeholder="Ask anything about the Indian election system..." onkeydown="handleChatKeydown(event)">
+              <button class="btn btn-primary" id="btn-send-chat" onclick="submitUserChatMessage()">
+                <span>Send</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+              </button>
+            </div>
+            <div class="chat-disclaimer">
+              ECI Democracy Advisor is an educational assistant. Consult standard ECI publications for official legal
+              disputes.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 2: PROCESS TIMELINE -->
+      <section id="timeline-view" class="content-view">
+        <div class="timeline-container glass-card">
+          <div class="timeline-intro">
+            <h3>The Electoral Lifecycle Roadmap</h3>
+            <p>Conducting the world's biggest election is a highly structured process running across distinct
+              operational phases. Select any milestone below to see standard protocols, laws, and activities of that
+              period.</p>
+          </div>
+
+          <!-- Interactive Stepper -->
+          <div class="timeline-stepper">
+            <div class="timeline-progress-bar">
+              <div class="timeline-progress-fill" id="timeline-progress"></div>
+            </div>
+            <div class="step-nodes">
+              <button class="step-node active" data-step="0" onclick="showStep(0)">
+                <div class="node-dot">1</div>
+                <span class="node-label">Announcement</span>
+              </button>
+              <button class="step-node" data-step="1" onclick="showStep(1)">
+                <div class="node-dot">2</div>
+                <span class="node-label">Nominations</span>
+              </button>
+              <button class="step-node" data-step="2" onclick="showStep(2)">
+                <div class="node-dot">3</div>
+                <span class="node-label">Campaigning</span>
+              </button>
+              <button class="step-node" data-step="3" onclick="showStep(3)">
+                <div class="node-dot">4</div>
+                <span class="node-label">Polling Day</span>
+              </button>
+              <button class="step-node" data-step="4" onclick="showStep(4)">
+                <div class="node-dot">5</div>
+                <span class="node-label">Strong Rooms</span>
+              </button>
+              <button class="step-node" data-step="5" onclick="showStep(5)">
+                <div class="node-dot">6</div>
+                <span class="node-label">Counting Day</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step Detail Area -->
+          <div class="step-content-display glass-card" id="step-detail-card">
+            <div class="step-header">
+              <span class="step-badge" id="step-num-badge">Phase 1 of 6</span>
+              <h3 id="step-title">Announcement & Model Code</h3>
+            </div>
+            <div class="step-body-grid">
+              <div class="step-text">
+                <p id="step-desc">The Election Commission of India calls a press conference to announce poll schedules
+                  across all States and Union Territories. The instant they announce, the Model Code of Conduct (MCC)
+                  immediately goes into active effect.</p>
+
+                <h4 class="mini-title">Key Regulatory Protocols:</h4>
+                <ul class="step-list" id="step-rules">
+                  <li><strong>Model Code of Conduct (MCC):</strong> Government is restricted from announcing new
+                    policies, schemes, or financial grants to prevent influencing voters.</li>
+                  <li><strong>Public Assets:</strong> Rulings parties cannot use official vehicles, machinery, or public
+                    spaces for campaigning.</li>
+                  <li><strong>Security Mobilization:</strong> Immediate deployment planning for CAPF forces starts
+                    across sensitive zones.</li>
+                </ul>
+              </div>
+              <div class="step-graphic-panel">
+                <div class="graphic-placeholder" id="step-graphic">
+                  <!-- Custom CSS graphic related to step -->
+                  <div class="graphic-mic-mcc">
+                    <div class="mic-base"></div>
+                    <div class="wave pulse"></div>
+                    <div class="wave wave-2 pulse"></div>
+                  </div>
+                </div>
+                <div class="step-fun-fact">
+                  <h5>Did You Know?</h5>
+                  <p id="step-fact">Once MCC starts, no official photo of ministers, including the PM, can remain
+                    displayed on government websites or advertisements!</p>
+                </div>
+              </div>
+            </div>
+            <div class="step-navigation-actions">
+              <button class="btn btn-secondary" id="btn-prev-step" onclick="prevStep()" disabled>Previous Step</button>
+              <button class="btn btn-primary" id="btn-next-step" onclick="nextStep()">Next Step</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 3: EVM & VVPAT SIMULATOR -->
+      <section id="evm-view" class="content-view">
+
+        <!-- EVM Dashboard Tabs -->
+        <div class="evm-tabs-container">
+          <button class="evm-tab active" data-tab="evm-cast" onclick="switchEvmTab('evm-cast')">
+            <span class="tab-num">1</span>
+            <div class="tab-meta">
+              <h5>Cast Vote</h5>
+              <span>Balloting & VVPAT</span>
+            </div>
+          </button>
+          <button class="evm-tab" data-tab="evm-seal" onclick="switchEvmTab('evm-seal')">
+            <span class="tab-num">2</span>
+            <div class="tab-meta">
+              <h5>Secure Seal</h5>
+              <span>Strongroom Vaults</span>
+            </div>
+          </button>
+          <button class="evm-tab" data-tab="evm-count" onclick="switchEvmTab('evm-count')">
+            <span class="tab-num">3</span>
+            <div class="tab-meta">
+              <h5>Result Tally</h5>
+              <span>Control Unit Decrypt</span>
+            </div>
+          </button>
+          <button class="evm-tab" data-tab="evm-audit" onclick="switchEvmTab('evm-audit')">
+            <span class="tab-num">4</span>
+            <div class="tab-meta">
+              <h5>Random Audit</h5>
+              <span>VVPAT Roll Verification</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- SUB-TAB 1: CAST VOTE (BU & VVPAT SIMULATION) -->
+        <div id="evm-cast" class="evm-tab-content active">
+          <div class="sim-grid">
+
+            <!-- Left Panel: Interactive Devices -->
+            <div class="device-column">
+              <div class="device-label">EVM Balloting Unit (BU) & VVPAT Setup</div>
+
+              <div class="devices-layout">
+
+                <!-- BALLOTING UNIT -->
+                <div class="balloting-unit glass-card">
+                  <div class="bu-header">
+                    <div class="bu-logo">ELECTRONIC VOTING MACHINE</div>
+                    <div class="bu-indicator">
+                      <span class="indicator-label">Ready (Green)</span>
+                      <div class="indicator-led green-led active" id="bu-led-green"></div>
+                    </div>
+                  </div>
+
+                  <div class="candidates-ballot-list" id="ballot-list">
+                    <!-- Javascript will populate candidates dynamically -->
+                  </div>
+                </div>
+
+                <!-- VVPAT MACHINE -->
+                <div class="vvpat-unit glass-card">
+                  <div class="vvpat-header">VVPAT PRINTER</div>
+                  <div class="vvpat-glass-view">
+                    <!-- Glass window showing printed paper slip -->
+                    <div class="vvpat-paper-window">
+                      <div class="vvpat-slip" id="vvpat-paper-slip">
+                        <!-- Printed slip details -->
+                        <div class="slip-header">ECI VVPAT SLIP</div>
+                        <div class="slip-divider"></div>
+                        <div class="slip-candidate-number" id="slip-c-num">01</div>
+                        <div class="slip-candidate-name" id="slip-c-name">ARJUN SHARMA</div>
+                        <div class="slip-candidate-symbol" id="slip-c-symbol">☀️</div>
+                        <div class="slip-party" id="slip-c-party">NPP</div>
+                        <div class="slip-footer">VERIFIED VOTE</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="vvpat-indicator">
+                    <div class="vvpat-led" id="vvpat-led-busy"></div>
+                    <span class="vvpat-led-label">Printing Slip</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Right Panel: Guide & Explanation -->
+            <div class="guide-column">
+              <div class="glass-card instruction-box">
+                <h4>Interactive Guide: How to Vote</h4>
+                <p>Welcome to the polling booth booth simulator. Follow these real voting steps:</p>
+
+                <ol class="step-guide-list">
+                  <li class="active" id="guide-step-1"><strong>Step 1: Check BU Status</strong> - Verify the green
+                    "READY" light on the Balloting Unit is glowing. This means the Presiding Officer has unlocked the
+                    ballot.</li>
+                  <li id="guide-step-2"><strong>Step 2: Cast Your Vote</strong> - Press the blue button next to your
+                    preferred candidate's name and symbol on the Balloting Unit.</li>
+                  <li id="guide-step-3"><strong>Step 3: Listen & Verify Slip</strong> -
+                    <ul>
+                      <li>The red LED next to the candidate will light up.</li>
+                      <li>A paper slip will be printed in the VVPAT window showing your selected candidate.</li>
+                      <li>Verify the details on the paper slip. It remains visible for exactly <strong>7
+                          seconds</strong>.</li>
+                    </ul>
+                  </li>
+                  <li id="guide-step-4"><strong>Step 4: The Final Beep</strong> - The printed VVPAT paper slip will
+                    automatically cut and drop into the sealed box below. A loud <strong>BEEP sound</strong> will play
+                    from the EVM Control Unit to confirm your vote is recorded securely.</li>
+                </ol>
+
+                <div class="voting-log-console">
+                  <span class="console-title">EVM Security Logs:</span>
+                  <div class="console-entries" id="vote-console-log">
+                    <div class="entry select-entry">&gt; EVM System Initialized. Awaiting vote.</div>
+                  </div>
+                </div>
+
+                <div class="interactive-stats-box">
+                  <h5>Total Votes Recorded in CU:</h5>
+                  <div class="live-cu-counter" id="live-cu-counter-val">00</div>
+                  <div class="reset-button-container">
+                    <button class="btn btn-secondary btn-sm" id="btn-reset-simulator" onclick="resetSimulator()">Clear
+                      EVM Data</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SUB-TAB 2: SECURE SEAL (STRONGROOM PROCEDURES) -->
+        <div id="evm-seal" class="evm-tab-content">
+          <div class="seal-container glass-card">
+            <h3>Post-Poll EVM Sealing & Strongroom Security</h3>
+            <p>How do we ensure that nobody tampers with the EVMs after votes are cast? It's done through a rigorous
+              series of manual seals, paperwork, and heavy paramilitary guards.</p>
+
+            <div class="seal-stages-grid">
+
+              <div class="seal-stage-card">
+                <div class="stage-illustration">
+                  <div class="seal-graphic">
+                    <div class="cu-box-mini"></div>
+                    <div class="seal-tag saffron-glow">Thread & Wax</div>
+                  </div>
+                </div>
+                <h4>1. Close & Seal</h4>
+                <p>At 6:00 PM, the Presiding Officer presses the **CLOSE** button on the Control Unit (CU) in front of
+                  polling agents representing different political parties. The unit is locked inside its carrying case,
+                  wrapped with thread, and sealed with a hot wax stamp and unique paper seals signed by candidates'
+                  agents.</p>
+              </div>
+
+              <div class="seal-stage-card">
+                <div class="stage-illustration">
+                  <div class="strongroom-graphic">
+                    <div class="heavy-gate"></div>
+                    <div class="capf-shield">CAPF 3-Tier</div>
+                  </div>
+                </div>
+                <h4>2. The Double-Lock Vault</h4>
+                <p>All sealed EVMs are transported to designated Strongrooms in each constituency. The single door of
+                  the Strongroom is double-locked in the presence of returning officers and candidates. Double locks can
+                  only be opened when both keys are combined.</p>
+              </div>
+
+              <div class="seal-stage-card">
+                <div class="stage-illustration">
+                  <div class="cctv-graphic">
+                    <div class="cctv-camera"></div>
+                    <div class="live-feed-text">LIVE 24/7</div>
+                  </div>
+                </div>
+                <h4>3. 3-Tier Paramilitary Shield</h4>
+                <p>The outer perimeter is guarded by Central Armed Police Forces (CAPF), the second layer by State Armed
+                  Police, and the third by local police. Candidate representatives can camp outside and watch 24/7 CCTV
+                  feeds of the Strongroom doors.</p>
+              </div>
+
+            </div>
+
+            <div class="strongroom-interactive-experience">
+              <div class="vault-panel">
+                <h4>Simulated Strongroom Monitoring Portal</h4>
+                <p>Check the security metrics for <strong>Constituency Strongroom #12-A</strong>:</p>
+                <div class="monitors-status-grid">
+                  <div class="status-indicator-box">
+                    <span class="status-dot green-dot"></span>
+                    <span class="status-label">CCTV Status: **ACTIVE & ONLINE**</span>
+                  </div>
+                  <div class="status-indicator-box">
+                    <span class="status-dot green-dot"></span>
+                    <span class="status-label">Outer Guard: **CAPF (Border Security) Armed**</span>
+                  </div>
+                  <div class="status-indicator-box">
+                    <span class="status-dot green-dot"></span>
+                    <span class="status-label">Door Seal Integrity: **100% UNBROKEN**</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUB-TAB 3: RESULT TALLY (CONTROL UNIT DECRYPT) -->
+        <div id="evm-count" class="evm-tab-content">
+          <div class="sim-grid">
+            <!-- Left: Counting Table CU Simulator -->
+            <div class="device-column">
+              <div class="device-label">EVM Control Unit (CU) - Counting Day Mode</div>
+
+              <div class="cu-counting-machine glass-card">
+                <div class="cu-header">
+                  <div class="cu-model">ECI CONTROL UNIT - MODEL M3</div>
+                  <div class="cu-display-screen" id="cu-screen">
+                    <div class="cu-screen-text" id="cu-screen-line-1">AWAITING DECRYPT</div>
+                    <div class="cu-screen-text text-yellow" id="cu-screen-line-2">PRESS BREAK SEAL</div>
+                  </div>
+                </div>
+
+                <div class="cu-panels-container">
+                  <!-- Sealing Section -->
+                  <div class="cu-paper-seal-section" id="cu-seal-container">
+                    <div class="paper-seal-strip">
+                      <span>UNIQUE ID: ECI-88491-03</span>
+                      <div class="agent-signatures">
+                        <span>Sig: Party A</span>
+                        <span>Sig: Party B</span>
+                      </div>
+                    </div>
+                    <button class="btn btn-danger btn-sm" id="btn-break-seal" onclick="breakCuSeal()">Break Paper
+                      Seal</button>
+                  </div>
+
+                  <!-- Control Buttons Compartment -->
+                  <div class="cu-buttons-compartment locked" id="cu-buttons-compartment">
+                    <div class="compartment-door-label">Result Compartment (Unlocked)</div>
+                    <div class="compartment-buttons">
+                      <button class="cu-btn-round cu-close-btn" disabled>Close</button>
+                      <button class="cu-btn-round cu-result-btn" id="btn-cu-result" disabled
+                        onclick="pressCuResult()">Result</button>
+                      <button class="cu-btn-round cu-clear-btn" disabled>Clear</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Tabular Counting Board -->
+            <div class="guide-column">
+              <div class="glass-card instruction-box">
+                <h4>Counting Day Protocol</h4>
+                <p>On counting day, multiple tables are set up in a large hall under heavy security and surveillance of
+                  candidates. To compute results:</p>
+                <ol class="counting-steps">
+                  <li id="count-step-1"><strong>Step 1: Check Seals</strong> - The sealed carrying case of the Control
+                    Unit is checked, signed seals are verified by political agents to ensure no tampering has occurred.
+                  </li>
+                  <li id="count-step-2"><strong>Step 2: Break Seal</strong> - The outer plastic seal is broken to reveal
+                    the result compartment door (Click **Break Paper Seal**).</li>
+                  <li id="count-step-3"><strong>Step 3: Press "Result" Button</strong> - The supervisor presses the
+                    black "Result" button inside the compartment. The display screen will cycle through: <em>Total
+                      Voters, Candidate 1 Votes, Candidate 2 Votes...</em> and output the final tally.</li>
+                </ol>
+
+                <div class="results-board glass-card">
+                  <h5>EVM Decrypted Results Board</h5>
+                  <table class="results-table">
+                    <thead>
+                      <tr>
+                        <th>Candidate</th>
+                        <th>Party</th>
+                        <th>Votes Tallied</th>
+                        <th>Percentage</th>
+                      </tr>
+                    </thead>
+                    <tbody id="counting-results-body">
+                      <tr>
+                        <td colspan="4" class="text-center text-muted">No decrypted results yet. Press Result on the CU.
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="tally-chart-container" id="counting-chart-container" style="display:none;">
+                    <!-- Javascript will build visual bars -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUB-TAB 4: RANDOM AUDIT (VVPAT VERIFICATION) -->
+        <div id="evm-audit" class="evm-tab-content">
+          <div class="audit-container glass-card">
+            <h3>Random VVPAT Audit Match Minigame</h3>
+            <p>To establish absolute trust, ECI mandates physical cross-verification. At the end of voting, **5 polling
+              stations are randomly selected by draw of lots** in each Assembly constituency. Their VVPAT physical paper
+              slips are manually counted and matched with the respective EVM Control Unit display totals.</p>
+
+            <div class="audit-game-layout">
+              <div class="audit-setup-panel">
+                <h4>Booths Under Inspection</h4>
+                <p>We have randomly selected a booth for cross-verification. Let's compare the Electronic CU Record with
+                  physical paper slips in the VVPAT container.</p>
+
+                <div class="audit-booth-status-bar">
+                  <strong>Inspection Target:</strong> Polling Station #47-B (Government High School, Room 1)
+                </div>
+
+                <div class="comparison-flex">
+                  <!-- EVM CU Total -->
+                  <div class="comp-box glass-card">
+                    <h5>Electronic Record (CU)</h5>
+                    <div class="comp-value" id="audit-cu-total">--</div>
+                    <span>Secure Decrypted Total</span>
+                  </div>
+
+                  <div class="comp-vs">VS</div>
+
+                  <!-- VVPAT Paper Slips Counted -->
+                  <div class="comp-box glass-card">
+                    <h5>Physical Slips Counted</h5>
+                    <div class="comp-value" id="audit-slips-total">0</div>
+                    <span>Manual Audit Roll Count</span>
+                  </div>
+                </div>
+
+                <div class="audit-game-actions">
+                  <button class="btn btn-primary" id="btn-draw-audit" onclick="startAuditGame()">Initialize Audit
+                    Check</button>
+                  <button class="btn btn-secondary" id="btn-match-audit" onclick="matchAuditCounts()" disabled>Verify &
+                    File Matching Certificate</button>
+                </div>
+              </div>
+
+              <!-- Minigame sorting screen -->
+              <div class="audit-playfield glass-card" id="audit-playfield">
+                <div class="playfield-cover-message">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 8v4l3 3" />
+                  </svg>
+                  <h4>Click "Initialize Audit Check" to start counting VVPAT paper slips.</h4>
+                  <p>You will manually group slips from the VVPAT box to ensure they match candidate records exactly.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- VIEW 4: MODERN TECH & APPS -->
+      <section id="tech-view" class="content-view">
+        <div class="tech-intro-banner glass-card">
+          <h3>ECI's High-Tech Election Shield</h3>
+          <p>The Election Commission of India relies on advanced, custom-built digital tools to combat electoral
+            corruption, educate citizens, and increase accessibility. Explore three key digital solutions below.</p>
+        </div>
+
+        <div class="tech-tabs-nav">
+          <button class="tech-subtab active" data-subtab="tech-cvigil" onclick="switchTechTab('tech-cvigil')">cVIGIL
+            Citizen Reporter</button>
+          <button class="tech-subtab" data-subtab="tech-kyc" onclick="switchTechTab('tech-kyc')">Know Your Candidate
+            (KYC)</button>
+          <button class="tech-subtab" data-subtab="tech-home" onclick="switchTechTab('tech-home')">Home Voting for
+            Seniors/PwD</button>
+        </div>
+
+        <!-- TECH ITEM 1: cVIGIL -->
+        <div id="tech-cvigil" class="tech-tab-panel active">
+          <div class="sim-grid">
+            <div class="device-column">
+              <!-- Mock Smartphone showing cVIGIL app -->
+              <div class="mock-phone">
+                <div class="phone-screen glass-card">
+                  <div class="cvigil-app-header">
+                    <span class="app-dot green-dot"></span>
+                    <span class="app-title">cVIGIL Citizen Portal</span>
+                    <span class="app-badge">ECI Official</span>
+                  </div>
+
+                  <div class="cvigil-app-body" id="cvigil-form-container">
+                    <h5>Report MCC Violation</h5>
+                    <p class="app-instruction">Spotted illegal campaigning, cash distribution, or hate speech? File it
+                      anonymously. ECI will deploy flying squads and resolve this within **100 Minutes**.</p>
+
+                    <div class="form-group">
+                      <label for="cvigil-type">Violation Category</label>
+                      <select id="cvigil-type" class="form-control">
+                        <option value="">-- Select Violation --</option>
+                        <option value="Money Distribution">Inducement/Money Distribution</option>
+                        <option value="Liquor Distribution">Liquor Distribution</option>
+                        <option value="Hate Speech">Hate Speech / Inflammatory Rally</option>
+                        <option value="Unpermitted Banners">Posters/Banners without permission</option>
+                        <option value="Intimidation">Voter Intimidation/Force</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="cvigil-location">Location (Captured via GPS)</label>
+                      <input type="text" id="cvigil-location" class="form-control"
+                        value="Ward 12, Shastri Nagar Community Center" readonly>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Capture Evidence</label>
+                      <div class="mock-camera-btn" onclick="captureMockPhoto()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                          <circle cx="12" cy="13" r="4" />
+                        </svg>
+                        <span id="cvigil-photo-status">Tap to attach mock photograph</span>
+                      </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" onclick="submitCvigilReport()">File cVIGIL Report</button>
+                  </div>
+
+                  <!-- Submit Success view in App -->
+                  <div class="cvigil-app-body" id="cvigil-tracker-container" style="display: none;">
+                    <div class="tracker-success-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                      </svg>
+                    </div>
+                    <h5>Report Logged Successfully</h5>
+                    <div class="case-id">TICKET: #cVIGIL-77491-DEL</div>
+                    <div class="live-tracker-box">
+                      <div class="tracker-label">Time Remaining for Resolution:</div>
+                      <div class="tracker-timer" id="cvigil-timer">100:00</div>
+                      <div class="progress-bar-cv">
+                        <div class="progress-fill-cv" id="cv-fill"></div>
+                      </div>
+                    </div>
+                    <div class="audit-logs">
+                      <div class="log-line"><strong>00 min:</strong> Report submitted with coordinates.</div>
+                      <div class="log-line"><strong>05 min:</strong> Dispatched Flying Squad #4.</div>
+                      <div class="log-line text-yellow"><strong>12 min:</strong> Officer arriving at scene
+                        (simulated)...</div>
+                    </div>
+                    <button class="btn btn-secondary btn-sm btn-block" onclick="resetCvigilApp()">Report Another
+                      Issue</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="guide-column">
+              <div class="glass-card instruction-box">
+                <h4>What is the cVIGIL App?</h4>
+                <p>cVIGIL (vigilant citizen) is ECI’s flagship mobile app designed to bypass local political pressures
+                  and establish direct contact between citizens and District Election Officers.</p>
+                <h5>Core Strengths:</h5>
+                <ul class="cv-list">
+                  <li><strong>Fast Action:</strong> The system automatically coordinates with nearby physical Flying
+                    Squads via GIS location data.</li>
+                  <li><strong>Geotagged Integrity:</strong> Pre-recorded files or gallery uploads are not allowed in the
+                    actual app to avoid fake or staged reports. Only live camera captures are processed.</li>
+                  <li><strong>Total Anonymity:</strong> Citizens can report violations without revealing their
+                    credentials, protecting their safety.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TECH ITEM 2: KYC (KNOW YOUR CANDIDATE) -->
+        <div id="tech-kyc" class="tech-tab-panel">
+          <div class="kyc-container glass-card">
+            <h3>ECI KYC Database Portal (Interactive Mock)</h3>
+            <p>Under Supreme Court mandates, every candidate must submit a legally-binding affidavit detailing their
+              financial assets, liabilities, educational background, and pending criminal cases. Use ECI's KYC engine
+              below to explore candidate profiles.</p>
+
+            <div class="kyc-layout">
+              <!-- Left Sidebar of candidates -->
+              <div class="kyc-sidebar">
+                <h5>Constituency: North-West Delhi</h5>
+                <div class="candidate-kyc-items" id="kyc-candidates-list">
+                  <!-- JS populated candidate profile options -->
+                </div>
+              </div>
+
+              <!-- Right Detail view of active candidate -->
+              <div class="kyc-profile-display glass-card" id="kyc-display-card">
+                <!-- JS Populated active candidate profile detail -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TECH ITEM 3: HOME VOTING -->
+        <div id="tech-home" class="tech-tab-panel">
+          <div class="postal-ballot-container glass-card">
+            <h3>Home Voting: Accessible Democracy</h3>
+            <p>To ensure no citizen is left behind, ECI introduced home-voting via postal ballots for senior citizens
+              aged **85 years and above** and **Persons with Disabilities (PwD)** with 40%+ benchmark disability.</p>
+
+            <div class="home-voting-flow-grid">
+              <div class="hv-step-card glass-card">
+                <div class="hv-icon saffron-glow">1</div>
+                <h4>Form 12D Application</h4>
+                <p>Eligible voters submit Form 12D to the Booth Level Officer (BLO) within 5 days of election
+                  notification, requesting the postal ballot option.</p>
+              </div>
+
+              <div class="hv-step-card glass-card">
+                <div class="hv-icon white-glow">2</div>
+                <h4>Official Polling Visit</h4>
+                <p>A team of two polling officials, accompanied by a micro-observer, videographer, and security
+                  personnel, visits the voter's residence with a secure ballot paper.</p>
+              </div>
+
+              <div class="hv-step-card glass-card">
+                <div class="hv-icon green-glow">3</div>
+                <h4>Secrecy Compartment</h4>
+                <p>A temporary voting compartment is set up at their house. The voter marks the ballot paper in complete
+                  privacy, puts it inside an envelope, and seals it.</p>
+              </div>
+
+              <div class="hv-step-card glass-card">
+                <div class="hv-icon accent-glow">4</div>
+                <h4>Secure Deposition</h4>
+                <p>The sealed envelope is dropped into a portable steel ballot box. Candidates' agents are invited to
+                  witness this entire process, which is fully videographed to avoid coercion.</p>
+              </div>
+            </div>
+
+            <div class="hv-video-explanation glass-card">
+              <h4>Home Voting Integrity Check</h4>
+              <p>Critics ask: <em>Could family members force the senior to vote for a specific candidate?</em></p>
+              <blockquote>
+                "No. The polling team enforces the exact same secrecy protocols at home as at a polling booth. The
+                family members must stay outside the voting compartment, and any interference results in cancellation of
+                the ballot."
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 5: SMART VOTER TOOLKIT -->
+      <section id="toolkit-view" class="content-view">
+        <div class="toolkit-grid">
+
+          <!-- Column 1: Eligibility Checker -->
+          <div class="toolkit-panel glass-card">
+            <h3>Voter Registration & Eligibility Checker</h3>
+            <p>Not sure if you can vote or how to get registered? Walk through our eligibility checker to find out.</p>
+
+            <div class="eligibility-wizard" id="el-wizard">
+              <div class="wizard-progress">
+                <div class="wizard-progress-bar" id="wiz-progress"></div>
+              </div>
+
+              <!-- Wizard Step 1 -->
+              <div class="wizard-step active" data-wiz="0">
+                <h5>Are you a Citizen of India?</h5>
+                <p>Only citizens holding active Indian nationality can participate in elections.</p>
+                <div class="wizard-btns">
+                  <button class="btn btn-primary" onclick="nextWizStep(true)">Yes, I am an Indian Citizen</button>
+                  <button class="btn btn-secondary" onclick="nextWizStep(false)">No, I am an NRI/Foreign
+                    national</button>
+                </div>
+              </div>
+
+              <!-- Wizard Step 2 -->
+              <div class="wizard-step" data-wiz="1">
+                <h5>What is your age?</h5>
+                <p>To register in the electoral roll, a citizen must have crossed the age threshold.</p>
+                <div class="wizard-btns flex-col">
+                  <button class="btn btn-primary" onclick="nextWizStep('18+')">I am 18 years or older</button>
+                  <button class="btn btn-secondary" onclick="nextWizStep('under18')">I am under 18 years old</button>
+                </div>
+              </div>
+
+              <!-- Wizard Step 3 -->
+              <div class="wizard-step" data-wiz="2">
+                <h5>Are you currently registered on the Electoral Roll?</h5>
+                <p>Having a physical Voter ID card is not enough; your name must actively appear on the official
+                  government electoral roll.</p>
+                <div class="wizard-btns flex-col">
+                  <button class="btn btn-primary" onclick="nextWizStep('registered')">Yes, my name is on the
+                    roll</button>
+                  <button class="btn btn-secondary" onclick="nextWizStep('unregistered')">No / Not sure</button>
+                </div>
+              </div>
+
+              <!-- Wizard Outcome Panel -->
+              <div class="wizard-step" id="wiz-outcome">
+                <h5 id="wiz-outcome-title">Outcome Title</h5>
+                <p id="wiz-outcome-text">Outcome Description...</p>
+                <div class="outcome-checklist" id="wiz-outcome-actions">
+                  <!-- Custom action list links based on result -->
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="resetWiz()">Restart Checker</button>
+              </div>
+            </div>
+
+            <!-- ECI Registration forms summary -->
+            <div class="forms-guide glass-card">
+              <h4>Essential Electoral Forms Checklist</h4>
+              <div class="form-item-guide">
+                <strong>Form 6:</strong> New voter registration / Shifting to another constituency.
+              </div>
+              <div class="form-item-guide">
+                <strong>Form 7:</strong> Objection to inclusion or deletion of a name from the electoral roll.
+              </div>
+              <div class="form-item-guide">
+                <strong>Form 8:</strong> Correction of entries in existing electoral roll (name, address, photo, etc.).
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Smart Voter Quiz -->
+          <div class="toolkit-panel glass-card">
+            <h3>"Are You a Smart Voter?" Trivia Game</h3>
+            <p>Test your knowledge of the Indian electoral system. Answer all questions correctly to download your
+              personalized ECI Knowledge Badge!</p>
+
+            <div class="quiz-box glass-card" id="quiz-container">
+              <div class="quiz-progress-bar-container">
+                <div class="quiz-bar-fill" id="quiz-fill"></div>
+              </div>
+
+              <div class="quiz-header">
+                <span class="quiz-badge" id="quiz-q-num">Question 1 of 5</span>
+                <h4 id="quiz-q-text">What is the minimum age to contest in the Lok Sabha (Parliamentary) elections in
+                  India?</h4>
+              </div>
+
+              <div class="quiz-answers" id="quiz-answers-box">
+                <!-- Javascript will load answers here -->
+              </div>
+
+              <div class="quiz-feedback-box" id="quiz-feedback" style="display:none;">
+                <h5 id="feedback-status">Correct!</h5>
+                <p id="feedback-explanation">Minimum age is 25 years under Article 84 of the Constitution.</p>
+                <button class="btn btn-primary btn-sm" id="btn-next-question" onclick="nextQuizQuestion()">Next
+                  Question</button>
+              </div>
+            </div>
+
+            <!-- Quiz Badge Outcome -->
+            <div class="quiz-certificate-card glass-card" id="quiz-badge-card" style="display:none;">
+              <div class="badge-icon">
+                <div class="gold-seal">
+                  <span>Smart Voter</span>
+                  <span>VERIFIED</span>
+                </div>
+              </div>
+              <h4>Congratulations, Citizen!</h4>
+              <p>You scored <strong id="badge-score">5/5</strong> on the ECI Knowledge Check! You have shown a high
+                level of civic awareness regarding Indian democratic mechanisms.</p>
+
+              <div class="badge-voter-details">
+                <div class="form-group">
+                  <label for="voter-cert-name">Name on Certificate</label>
+                  <input type="text" id="voter-cert-name" class="form-control" value="Responsible Citizen"
+                    placeholder="Enter your name">
+                </div>
+              </div>
+
+              <div class="badge-buttons">
+                <button class="btn btn-primary" onclick="claimVoterBadge()">Download Civic Certificate</button>
+                <button class="btn btn-secondary" onclick="resetQuiz()">Take Quiz Again</button>
+              </div>
+
+            <div class="cert-canvas-container" style="display:none;">
+                <!-- Hidden Canvas used for generating downloadable badge image -->
+                <canvas id="cert-canvas" width="600" height="400"></canvas>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="js/app.js?v=2"></script>
+  <script src="js/chatbot.js?v=2"></script>
+</body>
+
+</html>
