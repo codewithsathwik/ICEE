@@ -120,8 +120,3 @@ ICEE/
 * **Logic:** Vanilla Javascript (ES6+) for structural DOM bindings, routing switches, and game tallies.
 * **Audio Synthesis:** Web Audio API (`AudioContext`, `OscillatorNode`, and `GainNode`) for generating buzzer tones.
 * **Graphics & Certificates:** HTML5 Canvas API for client-side certificate image rendering.
-
----
-
-## 📜 License
-This project is licensed under the MIT License. Feel free to use, adapt, and build upon it to foster broader civic education.
