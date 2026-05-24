@@ -40,12 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (chatInput) {
     chatInput.addEventListener("keydown", handleChatKeydown);
   }
-  
+
   const sendBtn = document.getElementById("btn-send-chat");
   if (sendBtn) {
     sendBtn.addEventListener("click", submitUserChatMessage);
   }
-  
+
   const clearBtn = document.getElementById("btn-clear-chat");
   if (clearBtn) {
     clearBtn.addEventListener("click", clearChatThread);
@@ -122,7 +122,7 @@ function showTypingIndicator() {
   const wrapper = document.createElement("div");
   wrapper.className = "typing-indicator-wrapper";
   wrapper.id = "chat-typing-indicator";
-  
+
   wrapper.innerHTML = `
     <div class="msg-meta">Democracy Advisor</div>
     <div class="typing-indicator">
@@ -169,15 +169,17 @@ async function fetchGeminiResponse(userMessage) {
     });
 
     if (!response.ok) {
-      throw new Error(`Gemini API Error: Status ${response.status}`);
+      const errorText = await response.text();
+      console.error("Gemini API Error Response Body:", errorText);
+      throw new Error(`Gemini API Error: Status ${response.status} - ${errorText}`);
     }
 
     const data = await response.json();
-    
+
     // Parse response
     if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0]) {
       const botReply = data.candidates[0].content.parts[0].text;
-      
+
       // Update history
       chatHistory.push({
         role: "model",
@@ -194,7 +196,7 @@ async function fetchGeminiResponse(userMessage) {
   } catch (error) {
     console.error("Chatbot API Fetch failure: ", error);
     removeTypingIndicator();
-    
+
     // Friendly fallback error message
     const errorFallbackMsg = "I apologize, but I encountered a network connectivity issue while consulting the central election AI nodes. Please make sure you are connected to the internet and try again.";
     appendMessageBubble(errorFallbackMsg, 'bot-msg', 'Democracy Advisor • System Error');
